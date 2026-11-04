@@ -1,0 +1,33 @@
+:root {
+  color-scheme: dark;
+  --color-canvas: #191713;
+  --color-surface: #211f1a;
+  --color-surface-hover: #292620;
+  --color-ink: #edecec;
+  --color-muted: #c4bdad;
+  --color-muted-dim: #8e8778;
+  --color-accent: #d6a62a;
+  --color-accent-strong: #91722b;
+  --color-accent-mid: #b08c2f;
+  --color-accent-dark: #614f25;
+  --color-border: #3d3524;
+  --color-border-subtle: #2d261a;
+  --color-light-canvas: #f6f3ee;
+  --color-light-surface: #ffffff;
+  --color-light-ink: #191713;
+  --color-light-muted: #6f675c;
+  --color-light-border: #ded8cb;
+  --color-footer: #191713;
+  --color-footer-ink: #edecec;
+
+  /* Typography - Primary: Ebene / Secondary: Roboto */
+  --font-ebene: 'Ebene', serif;
+  --font-roboto: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: var(--font-ebene), 'Ebene', serif;
+  --font-body: var(--font-roboto), 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-cormorant: var(--font-display);
+  --font-inter: var(--font-body);
+
+  --transition-smooth: 240ms cubic-bezier(0.16, 1, 0.3, 1);
+  --shadow-luxury: 0 16px 36px -12px rgba(0, 0, 0, 0.45);
+}

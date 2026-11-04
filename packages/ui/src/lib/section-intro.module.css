@@ -1,0 +1,40 @@
+.intro {
+  max-width: 680px;
+}
+
+.center {
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+  color: var(--color-muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 4.1rem);
+  font-weight: 400;
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+}
+
+.description {
+  max-width: 570px;
+  margin: 18px 0 0;
+  color: var(--color-muted);
+  font-size: 0.98rem;
+  line-height: 1.8;
+}
+
+.center .description {
+  margin-right: auto;
+  margin-left: auto;
+}

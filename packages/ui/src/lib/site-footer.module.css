@@ -1,0 +1,157 @@
+.footer {
+  width: 100%;
+  font-family: var(--font-body);
+  padding: 64px 0 32px;
+}
+
+@media (min-width: 1024px) {
+  .footer {
+    padding: 80px 0 40px;
+  }
+}
+
+.footerWeglow {
+  background: #191713;
+  color: #edecec;
+  border-top: 1px solid #3d3524;
+}
+
+.footerSurprise {
+  background: #661416;
+  color: #f6f3ee;
+  border-top: 1px solid #7e1d20;
+}
+
+.container {
+  width: min(100% - 48px, 1312px);
+  margin: 0 auto;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: min(100% - 128px, 1312px);
+  }
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  padding-bottom: 56px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+@media (min-width: 768px) {
+  .columns {
+    grid-template-columns: 1.2fr 1fr 1.2fr;
+    gap: 48px;
+  }
+}
+
+.brandCol {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.brand {
+  display: inline-flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+}
+
+.brandName {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+}
+
+.brandQualifier {
+  font-family: var(--font-body);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  opacity: 0.8;
+  margin-top: 4px;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--color-muted);
+  max-width: 300px;
+  margin: 0;
+}
+
+.linksCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.navLink {
+  font-size: 0.92rem;
+  color: var(--color-ink);
+  text-decoration: none;
+  transition: color var(--transition-smooth);
+}
+
+.navLink:hover {
+  color: var(--color-accent);
+}
+
+.coordsCol {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.coordsCol p {
+  margin: 0;
+}
+
+.coordsOfficial {
+  color: var(--color-muted);
+}
+
+.whatsAppLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  color: inherit;
+  transition: color var(--transition-smooth);
+}
+
+.whatsAppLink:hover {
+  color: var(--color-accent);
+}
+
+.coordsDetails {
+  font-size: 0.82rem;
+  color: var(--color-muted);
+}
+
+.legalBar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  padding-top: 24px;
+  font-size: 0.78rem;
+  color: var(--color-muted);
+  opacity: 0.7;
+}

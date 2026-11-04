@@ -1,0 +1,292 @@
+.page {
+  width: 100%;
+  background: var(--color-canvas);
+  color: var(--color-ink);
+}
+
+.container {
+  width: min(100% - 40px, 1312px);
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: min(100% - 64px, 1312px);
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: min(100% - 128px, 1312px);
+  }
+}
+
+.hero {
+  padding: 60px 0 80px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    padding: 96px 0;
+  }
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .heroGrid {
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 64px;
+  }
+}
+
+.heroCopy {
+  display: flex;
+  flex-direction: column;
+}
+
+.eyebrow {
+  margin: 0 0 16px;
+  font-family: var(--font-body);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.heroTitle {
+  margin: 0 0 24px;
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 5vw, 4.2rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  color: var(--color-ink);
+}
+
+.heroText {
+  margin: 0;
+  max-width: 480px;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--color-muted);
+}
+
+.heroFigure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.heroImage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.2 / 1;
+  overflow: hidden;
+  background: var(--color-surface);
+}
+
+.photo {
+  object-fit: cover;
+  transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.heroFigure:hover .photo {
+  transform: scale(1.025);
+}
+
+.caption {
+  font-size: 0.82rem;
+  color: var(--color-muted-dim);
+}
+
+.storySection {
+  padding: 64px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+@media (min-width: 1024px) {
+  .storySection {
+    padding: 96px 0;
+  }
+}
+
+.storyGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+@media (min-width: 900px) {
+  .storyGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+  }
+}
+
+.sectionHeading {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--color-ink);
+}
+
+.storyCopy p {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--color-muted);
+}
+
+.commitSection {
+  padding: 64px 0 80px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+@media (min-width: 1024px) {
+  .commitSection {
+    padding: 96px 0;
+  }
+}
+
+.commitSection .sectionHeading {
+  margin-bottom: 48px;
+}
+
+.commitGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+@media (min-width: 768px) {
+  .commitGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 36px;
+  }
+}
+
+.commitCard {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 32px 24px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  transition: all var(--transition-smooth);
+}
+
+.commitCard:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+.commitNumber {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--color-accent);
+}
+
+.commitTitle {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--color-ink);
+}
+
+.commitDesc {
+  margin: 0;
+  font-size: 0.94rem;
+  line-height: 1.6;
+  color: var(--color-muted);
+}
+
+.ctaSection {
+  padding: 64px 0 96px;
+}
+
+@media (min-width: 1024px) {
+  .ctaSection {
+    padding: 96px 0 120px;
+  }
+}
+
+.ctaCard {
+  border: 1px solid var(--color-accent);
+  padding: 48px 36px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: center;
+  background: rgba(214, 166, 42, 0.02);
+}
+
+@media (min-width: 900px) {
+  .ctaCard {
+    grid-template-columns: 1fr auto;
+    padding: 64px 56px;
+    gap: 48px;
+  }
+}
+
+.ctaCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.ctaTitle {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 400;
+  color: var(--color-ink);
+}
+
+.ctaText {
+  margin: 0;
+  max-width: 540px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-muted);
+}
+
+.whatsAppButtonFilled {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 26px;
+  background: var(--color-accent);
+  color: #191713;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all var(--transition-smooth);
+  white-space: nowrap;
+}
+
+.whatsAppButtonFilled:hover {
+  background: var(--color-accent-strong);
+  transform: translateY(-2px);
+}
+
+.btnIcon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+

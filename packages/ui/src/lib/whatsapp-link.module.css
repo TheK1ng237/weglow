@@ -1,0 +1,71 @@
+.button {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 18px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: all var(--transition-smooth, 240ms ease);
+  cursor: pointer;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+}
+
+.icon {
+  flex-shrink: 0;
+  width: 17px;
+  height: 17px;
+}
+
+.outline {
+  border-color: var(--color-border);
+  color: var(--color-ink);
+  background: transparent;
+}
+
+.outline:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.gold {
+  background: var(--color-accent, #d6a62a);
+  color: #191713;
+  border-color: var(--color-accent, #d6a62a);
+  font-weight: 600;
+}
+
+.gold:hover {
+  background: var(--color-accent-strong, #91722b);
+  border-color: var(--color-accent-strong, #91722b);
+}
+
+.bordeaux {
+  background: var(--color-bordeaux, #661416);
+  color: #f6f3ee;
+  border-color: var(--color-bordeaux, #661416);
+  font-weight: 600;
+}
+
+.bordeaux:hover {
+  background: var(--color-bordeaux-light, #931c20);
+  border-color: var(--color-bordeaux-light, #931c20);
+}
+
+.ghost {
+  background: transparent;
+  color: var(--color-ink);
+  border-color: transparent;
+  padding: 0;
+}
+
+.ghost:hover {
+  color: var(--color-accent);
+}

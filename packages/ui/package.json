@@ -9,6 +9,7 @@
       "import": "./src/index.ts",
       "default": "./src/index.ts"
     },
+    "./styles.css": "./src/styles.css",
     "./package.json": "./package.json"
   },
   "nx": {

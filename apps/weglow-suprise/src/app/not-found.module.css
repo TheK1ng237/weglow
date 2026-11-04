@@ -1,0 +1,102 @@
+.page {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  background: var(--color-canvas, #161414);
+  color: var(--color-ink, #f6f3ee);
+  padding: 100px 0;
+}
+
+.container {
+  width: min(100% - 40px, 920px);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.eyebrow {
+  margin: 0 0 16px;
+  font-family: var(--font-body);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-muted, #c8b1ad);
+}
+
+.title {
+  margin: 0 0 20px;
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 6vw, 4.8rem);
+  font-weight: 400;
+  line-height: 1.1;
+  color: #f6f3ee;
+}
+
+.text {
+  margin: 0 0 40px;
+  max-width: 580px;
+  font-size: 1.1rem;
+  line-height: 1.65;
+  color: var(--color-muted, #c8b1ad);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.bordeauxButton {
+  display: inline-flex;
+  min-height: 50px;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 0 28px;
+  background: var(--color-bordeaux, #661416);
+  color: #f6f3ee;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all var(--transition-smooth);
+}
+
+.bordeauxButton:hover {
+  background: var(--color-bordeaux-light, #931c20);
+  transform: translateY(-2px);
+}
+
+.outlineButton {
+  display: inline-flex;
+  min-height: 50px;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 0 28px;
+  background: transparent;
+  color: #f6f3ee;
+  border: 1px solid rgba(246, 243, 238, 0.4);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all var(--transition-smooth);
+}
+
+.outlineButton:hover {
+  border-color: #f6f3ee;
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-2px);
+}
+
+.arrow {
+  font-size: 1rem;
+  transition: transform var(--transition-smooth);
+}
+
+.bordeauxButton:hover .arrow,
+.outlineButton:hover .arrow {
+  transform: translate(2px, -2px);
+}

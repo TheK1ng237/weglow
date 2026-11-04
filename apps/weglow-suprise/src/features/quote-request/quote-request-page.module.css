@@ -1,0 +1,247 @@
+.wrapper {
+  width: 100%;
+  background: var(--color-canvas, #161414);
+  color: var(--color-ink, #f6f3ee);
+  overflow-x: hidden;
+}
+
+.container {
+  width: min(100% - 40px, 1312px);
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: min(100% - 64px, 1312px);
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: min(100% - 128px, 1312px);
+  }
+}
+
+/* 1. Hero with Background */
+.hero {
+  position: relative;
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 100px 0 80px;
+  background: #161414;
+  border-bottom: 1px solid var(--color-border);
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    min-height: 520px;
+    padding: 120px 0 100px;
+  }
+}
+
+.heroImage {
+  object-fit: cover;
+  object-position: center 40%;
+  z-index: 0;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    90deg,
+    rgba(22, 20, 20, 0.94) 0%,
+    rgba(22, 20, 20, 0.82) 50%,
+    rgba(22, 20, 20, 0.5) 100%
+  );
+}
+
+.heroCopy {
+  position: relative;
+  z-index: 2;
+  max-width: 780px;
+}
+
+.eyebrow {
+  margin: 0 0 16px;
+  font-family: var(--font-body);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-muted, #c8b1ad);
+}
+
+.heroTitle {
+  margin: 0 0 24px;
+  font-family: var(--font-display);
+  font-size: clamp(3.2rem, 6vw, 5.2rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  color: #f6f3ee;
+}
+
+.heroText {
+  margin: 0;
+  max-width: 600px;
+  font-size: 1.1rem;
+  line-height: 1.65;
+  color: #ded8cb;
+}
+
+/* 2. Page & Form Layout */
+.page {
+  padding: 80px 0 120px;
+}
+
+@media (min-width: 1024px) {
+  .page {
+    padding: 100px 0 140px;
+  }
+}
+
+.formLayout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .formLayout {
+    grid-template-columns: 0.85fr 1.35fr;
+    gap: 80px;
+  }
+}
+
+.guidance {
+  position: sticky;
+  top: 40px;
+}
+
+.guidanceCard {
+  background: var(--color-surface, #1e1c1c);
+  padding: 36px 32px;
+  border: 1px solid rgba(246, 243, 238, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.guidanceTitle {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.5vw, 2.6rem);
+  font-weight: 400;
+  line-height: 1.15;
+  color: #f6f3ee;
+}
+
+.guidanceText {
+  margin: 0;
+  font-size: 0.96rem;
+  line-height: 1.65;
+  color: #ded8cb;
+}
+
+.disclaimerBox {
+  padding: 16px 20px;
+  background: rgba(0, 0, 0, 0.25);
+  border-left: 2px solid var(--color-accent, #d6204a);
+}
+
+.disclaimerText {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: #c8b1ad;
+}
+
+.alternativeBox {
+  margin-top: 10px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(246, 243, 238, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.altHeading {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-muted, #c8b1ad);
+}
+
+.altText {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: #ded8cb;
+}
+
+.whatsAppButtonOutline {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 20px;
+  background: transparent;
+  color: #f6f3ee;
+  border: 1px solid rgba(246, 243, 238, 0.4);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all var(--transition-smooth);
+}
+
+.whatsAppButtonOutline:hover {
+  border-color: #25d366;
+  color: #25d366;
+  background: rgba(37, 211, 102, 0.05);
+}
+
+.btnIcon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.contactLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.88rem;
+  color: #c8b1ad;
+  text-decoration: none;
+  transition: color var(--transition-smooth);
+}
+
+.contactLink:hover {
+  color: #ffffff;
+}
+
+.formColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.formHeaderRow {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.formNote {
+  margin: 0;
+  font-size: 0.82rem;
+  color: #c8b1ad;
+}

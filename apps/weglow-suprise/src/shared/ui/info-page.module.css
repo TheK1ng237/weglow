@@ -1,0 +1,129 @@
+.page {
+  width: min(100% - 48px, 1180px);
+  margin: 0 auto;
+  padding: clamp(72px, 9vw, 118px) 0 76px;
+}
+
+.intro {
+  max-width: 760px;
+}
+
+.eyebrow {
+  margin: 0 0 18px;
+  color: var(--color-accent);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.intro h1 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(3.2rem, 6vw, 5.7rem);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+}
+
+.description {
+  max-width: 700px;
+  margin: 24px 0 0;
+  color: var(--color-muted);
+  font-size: 1rem;
+  line-height: 1.85;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(300px, 1fr);
+  align-items: center;
+  gap: clamp(34px, 6vw, 92px);
+  margin-top: 62px;
+}
+
+.image {
+  position: relative;
+  min-height: 360px;
+  aspect-ratio: 1.08;
+  background: var(--color-border);
+  box-shadow: 0 16px 36px rgb(12 8 6 / 24%);
+}
+
+.image img {
+  object-fit: cover;
+}
+
+.details {
+  display: grid;
+}
+
+.detail {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 14px;
+  margin: 0;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.detail span {
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-accent-strong);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+}
+
+.action {
+  margin-top: 28px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 74px;
+}
+
+.galleryImage {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1.18;
+  background: var(--color-surface);
+}
+
+.galleryImage img {
+  object-fit: cover;
+  transition: transform 450ms cubic-bezier(0.2, 0.65, 0.3, 1);
+}
+
+.galleryImage:hover img {
+  transform: scale(1.03);
+}
+
+@media (max-width: 760px) {
+  .page {
+    width: min(100% - 36px, 1120px);
+    padding: 64px 0 58px;
+  }
+
+  .content {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin-top: 36px;
+  }
+
+  .image {
+    min-height: 0;
+    aspect-ratio: 1.18;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 40px;
+  }
+}

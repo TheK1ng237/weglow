@@ -1,0 +1,353 @@
+.page {
+  width: 100%;
+  background: var(--color-canvas);
+  color: var(--color-ink);
+}
+
+.container {
+  width: min(100% - 40px, 1312px);
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: min(100% - 64px, 1312px);
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: min(100% - 128px, 1312px);
+  }
+}
+
+.hero {
+  position: relative;
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 100px 0 80px;
+  background: #161414;
+  border-bottom: 1px solid var(--color-border);
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    min-height: 520px;
+    padding: 120px 0 100px;
+  }
+}
+
+.heroImage {
+  object-fit: cover;
+  object-position: center 40%;
+  z-index: 0;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    90deg,
+    rgba(22, 20, 20, 0.94) 0%,
+    rgba(22, 20, 20, 0.82) 48%,
+    rgba(22, 20, 20, 0.45) 100%
+  );
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 820px;
+}
+
+.eyebrow {
+  margin: 0 0 16px;
+  font-family: var(--font-body);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.heroTitle {
+  margin: 0 0 24px;
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 6vw, 4.8rem);
+  font-weight: 400;
+  line-height: 1.05;
+  color: #f6f3ee;
+}
+
+.heroText {
+  margin: 0;
+  max-width: 600px;
+  font-size: 1.1rem;
+  line-height: 1.65;
+  color: var(--color-muted);
+}
+
+.intentSection {
+  background: var(--color-bordeaux, #661416);
+  color: #f6f3ee;
+  padding: 80px 0;
+  border-bottom: 1px solid var(--color-border-bordeaux, #7e1d20);
+}
+
+@media (min-width: 1024px) {
+  .intentSection {
+    padding: 100px 0;
+  }
+}
+
+.intentContent {
+  max-width: 960px;
+}
+
+.intentEyebrow {
+  margin: 0 0 16px;
+  font-family: var(--font-body);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #c8b1ad;
+}
+
+.intentTitle {
+  margin: 0 0 24px;
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+  font-weight: 400;
+  color: #f6f3ee;
+}
+
+.intentText {
+  margin: 0;
+  max-width: 820px;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #f6f3ee;
+  opacity: 0.9;
+}
+
+.teamSection {
+  padding: 64px 0 88px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+@media (min-width: 1024px) {
+  .teamSection {
+    padding: 96px 0 120px;
+  }
+}
+
+.teamGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .teamGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+  }
+}
+
+.teamCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sectionHeading {
+  margin: 0 0 20px;
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 400;
+  color: #f6f3ee;
+}
+
+.teamText {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--color-muted);
+}
+
+.teamFigure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.teamImageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.2 / 1;
+  overflow: hidden;
+  background: var(--color-surface);
+}
+
+.photo {
+  object-fit: cover;
+  transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.teamFigure:hover .photo {
+  transform: scale(1.025);
+}
+
+.caption {
+  font-size: 0.82rem;
+  color: var(--color-muted-dim);
+}
+
+.principlesSection {
+  padding: 64px 0 88px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+@media (min-width: 1024px) {
+  .principlesSection {
+    padding: 96px 0 120px;
+  }
+}
+
+.principlesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  margin-top: 48px;
+}
+
+@media (min-width: 768px) {
+  .principlesGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 36px;
+  }
+}
+
+.principleCard {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 36px 28px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  transition: all var(--transition-smooth);
+}
+
+.principleCard:hover {
+  border-color: var(--color-rose-vieilli, #945b5a);
+  transform: translateY(-2px);
+}
+
+.principleNumber {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--color-confetti, #c8b1ad);
+}
+
+.principleTitle {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #f6f3ee;
+}
+
+.principleDesc {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--color-muted);
+}
+
+/* Banner */
+.bannerSection {
+  padding: 64px 0 96px;
+  background: var(--color-canvas);
+}
+
+@media (min-width: 1024px) {
+  .bannerSection {
+    padding: 88px 0 120px;
+  }
+}
+
+.bannerCard {
+  background: #f6f3ee;
+  color: #161414;
+  padding: 48px 36px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: center;
+  border: 1px solid #ded8cb;
+}
+
+@media (min-width: 900px) {
+  .bannerCard {
+    grid-template-columns: 1fr auto;
+    padding: 64px 56px;
+    gap: 48px;
+  }
+}
+
+.bannerCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.bannerTitle {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 400;
+  color: #161414;
+}
+
+.bannerText {
+  margin: 0;
+  max-width: 580px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #554e4c;
+}
+
+.whatsAppButtonBordeaux {
+  display: inline-flex;
+  min-height: 50px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 28px;
+  background: var(--color-bordeaux, #661416);
+  color: #f6f3ee;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all var(--transition-smooth);
+  white-space: nowrap;
+}
+
+.whatsAppButtonBordeaux:hover {
+  background: var(--color-bordeaux-light, #931c20);
+  transform: translateY(-2px);
+}
+
+.btnIcon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+

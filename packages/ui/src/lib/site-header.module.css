@@ -1,0 +1,435 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  background: var(--color-canvas);
+  border-bottom: 1px solid var(--color-border);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.topBar {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.container {
+  display: flex;
+  width: min(100% - 48px, 1312px);
+  min-height: 80px;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  gap: 20px;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: min(100% - 128px, 1312px);
+    min-height: 88px;
+  }
+}
+
+.brand {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  text-decoration: none;
+  color: var(--color-ink);
+  transition: opacity var(--transition-smooth);
+}
+
+.brand:hover {
+  opacity: 0.9;
+}
+
+.brandName {
+  font-family: var(--font-display);
+  font-size: 2.1rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+}
+
+.brandQualifier {
+  font-family: var(--font-body);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-top: 4px;
+}
+
+.desktopNav {
+  display: none;
+  align-items: center;
+  gap: clamp(16px, 2.2vw, 36px);
+}
+
+@media (min-width: 1024px) {
+  .desktopNav {
+    display: flex;
+  }
+}
+
+.navLink {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--color-muted);
+  text-decoration: none;
+  transition: color var(--transition-smooth);
+  padding: 8px 0;
+  position: relative;
+}
+
+.navLink:hover {
+  color: var(--color-ink);
+}
+
+.navLinkActive {
+  color: var(--color-ink);
+}
+
+.navLinkActive::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--color-accent);
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.actionButton {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 20px;
+  background: var(--color-accent);
+  color: #191713;
+  font-family: var(--font-body);
+  font-size: 0.86rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all var(--transition-smooth);
+  white-space: nowrap;
+}
+
+/* For WeGlow Surprise, action is bordeaux with light text */
+:global([data-brand="surprise"]) .actionButton,
+:root:has([class*="surprise"]) .actionButton {
+  color: #f6f3ee;
+}
+
+.actionButton:hover {
+  background: var(--color-accent-strong);
+  transform: translateY(-1px);
+}
+
+.actionButton .arrow {
+  font-size: 0.95rem;
+  transition: transform var(--transition-smooth);
+}
+
+.actionButton:hover .arrow {
+  transform: translate(2px, -2px);
+}
+
+.menuToggle {
+  display: flex;
+  min-height: 48px;
+  min-width: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 8px 12px;
+  background: transparent;
+  color: var(--color-ink);
+  cursor: pointer;
+}
+
+@media (min-width: 1024px) {
+  .menuToggle {
+    display: none;
+  }
+}
+
+.menuText {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+.menuBars {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 18px;
+}
+
+.menuBar {
+  height: 1.5px;
+  width: 100%;
+  background: currentColor;
+}
+
+/* Sub-bar */
+.subBar {
+  min-height: 52px;
+  background: var(--color-canvas);
+  font-family: var(--font-body);
+}
+
+.subBar .container {
+  min-height: 52px;
+}
+
+.subBarLeft {
+  display: flex;
+  align-items: center;
+}
+
+.secondaryNav {
+  display: none;
+  align-items: center;
+  gap: clamp(16px, 2.2vw, 36px);
+}
+
+@media (min-width: 1024px) {
+  .secondaryNav {
+    display: flex;
+  }
+}
+
+.tagline {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.taglineSecondary {
+  display: none;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+@media (min-width: 1200px) {
+  .taglineSecondary {
+    display: inline-block;
+  }
+}
+
+.subBarRight {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-left: auto;
+}
+
+.whatsAppButtonWeglow {
+  display: inline-flex;
+  min-height: 38px;
+  align-items: center;
+  gap: 8px;
+  padding: 0 16px;
+  border: 1px solid var(--color-accent, #d6a62a);
+  color: var(--color-ink);
+  background: transparent;
+  font-size: 0.82rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all var(--transition-smooth);
+}
+
+.whatsAppButtonWeglow:hover {
+  background: rgba(214, 166, 42, 0.12);
+  color: var(--color-accent);
+}
+
+.whatsAppButtonSurprise {
+  display: inline-flex;
+  min-height: 38px;
+  align-items: center;
+  gap: 8px;
+  padding: 0 16px;
+  background: var(--color-bordeaux, #661416);
+  color: #f6f3ee;
+  border: 1px solid var(--color-bordeaux-light, #931c20);
+  font-size: 0.82rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all var(--transition-smooth);
+}
+
+.whatsAppButtonSurprise:hover {
+  background: var(--color-bordeaux-light, #931c20);
+  transform: translateY(-1px);
+}
+
+.whatsAppIcon {
+  width: 17px;
+  height: 17px;
+}
+
+/* Mobile Drawer (Matches WG-M / WS-M wireframes) */
+.drawerOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 300ms cubic-bezier(0.16, 1, 0.3, 1), visibility 300ms;
+}
+
+.drawerOpen {
+  visibility: visible;
+  opacity: 1;
+}
+
+.drawerBackdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+}
+
+.drawerContent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  max-width: 480px;
+  width: 100%;
+  max-height: 100vh;
+  overflow-y: auto;
+  background: var(--color-canvas);
+  border-right: 1px solid var(--color-border);
+  padding: 24px 28px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  transform: translateY(-10px);
+  transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.8);
+}
+
+.drawerOpen .drawerContent {
+  transform: translateY(0);
+}
+
+.drawerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.closeButton {
+  display: inline-flex;
+  min-height: 48px;
+  min-width: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-size: 0.88rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.closeIcon {
+  font-size: 1.1rem;
+}
+
+.drawerNav {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.drawerLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 48px;
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--color-muted);
+  text-decoration: none;
+  padding: 4px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  transition: color var(--transition-smooth);
+}
+
+.drawerLink:hover {
+  color: var(--color-ink);
+}
+
+.drawerLinkActive {
+  color: var(--color-ink);
+  font-weight: 600;
+}
+
+.activeDot {
+  width: 6px;
+  height: 6px;
+  background: var(--color-accent);
+  border-radius: 50%;
+}
+
+.drawerActions {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: auto;
+}
+
+.drawerActionButton {
+  display: flex;
+  min-height: 52px;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 0 24px;
+  background: var(--color-accent);
+  color: #191713;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background var(--transition-smooth);
+}
+
+.drawerFooterRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border);
+}
+
+.drawerTagline {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}

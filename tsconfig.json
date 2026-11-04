@@ -4,13 +4,19 @@
   "files": [],
   "references": [
     {
-      "path": "./apps/web-e2e"
-    },
-    {
-      "path": "./apps/web"
-    },
-    {
       "path": "./packages/ui"
+    },
+    {
+      "path": "./apps/weglow"
+    },
+    {
+      "path": "./apps/weglow-suprise"
+    },
+    {
+      "path": "./packages/brand-weglow"
+    },
+    {
+      "path": "./packages/brand-weglow-surprise"
     }
   ]
 }

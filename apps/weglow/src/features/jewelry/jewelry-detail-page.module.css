@@ -1,0 +1,376 @@
+.page {
+  width: 100%;
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  padding: 32px 0 96px;
+}
+
+.container {
+  width: min(100% - 40px, 1312px);
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: min(100% - 64px, 1312px);
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: min(100% - 128px, 1312px);
+  }
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 40px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.breadcrumb a:hover {
+  color: var(--color-accent);
+}
+
+.currentCrumb {
+  color: var(--color-ink);
+}
+
+.productSection {
+  padding-bottom: 80px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.productGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+}
+
+@media (min-width: 900px) {
+  .productGrid {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 64px;
+    align-items: start;
+  }
+}
+
+.galleryCol {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.mainImageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.1 / 1;
+  overflow: hidden;
+  background: var(--color-surface);
+}
+
+.mainPhoto {
+  object-fit: cover;
+  transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mainImageWrapper:hover .mainPhoto {
+  transform: scale(1.025);
+}
+
+.thumbnailRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.thumbButton {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.2 / 1;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  cursor: pointer;
+  padding: 0;
+  transition: border-color var(--transition-smooth);
+}
+
+.thumbButton:hover,
+.thumbActive {
+  border-color: var(--color-accent);
+}
+
+.thumbPhoto {
+  object-fit: cover;
+}
+
+.caption {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--color-muted-dim);
+}
+
+.infoCol {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.badge {
+  padding: 4px 10px;
+  border: 1px solid var(--color-accent);
+  color: var(--color-accent);
+}
+
+.ref {
+  color: var(--color-muted);
+}
+
+.productTitle {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4.2vw, 3.6rem);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--color-ink);
+}
+
+.productDesc {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--color-muted);
+}
+
+.specList {
+  margin: 0;
+  padding: 0 0 0 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 0.95rem;
+  color: var(--color-ink);
+}
+
+.specList li::marker {
+  color: var(--color-accent);
+}
+
+.pricingRow {
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border);
+}
+
+.pricingNote {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--color-muted);
+}
+
+.actionGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-top: 8px;
+}
+
+.primaryButton {
+  display: flex;
+  min-height: 50px;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 0 24px;
+  background: var(--color-accent);
+  color: #191713;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all var(--transition-smooth);
+}
+
+.primaryButton:hover {
+  background: var(--color-accent-strong);
+  transform: translateY(-2px);
+}
+
+.arrow {
+  font-size: 1rem;
+  transition: transform var(--transition-smooth);
+}
+
+.primaryButton:hover .arrow {
+  transform: translate(2px, -2px);
+}
+
+.whatsAppButton {
+  display: flex;
+  min-height: 50px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 24px;
+  background: transparent;
+  color: var(--color-ink);
+  border: 1px solid var(--color-border);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all var(--transition-smooth);
+}
+
+.whatsAppButton:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+.btnIcon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.reassurance {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--color-muted-dim);
+}
+
+/* Related Section */
+.relatedSection {
+  padding-top: 80px;
+}
+
+.relatedHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+@media (min-width: 768px) {
+  .relatedHeader {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.sectionHeading {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 400;
+  color: var(--color-ink);
+}
+
+.underlineLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.92rem;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  color: var(--color-ink);
+}
+
+.underlineLink:hover {
+  color: var(--color-accent);
+}
+
+.relatedGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+@media (min-width: 768px) {
+  .relatedGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.productCard {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.imageLink {
+  display: block;
+}
+
+.productImageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: var(--color-surface);
+}
+
+.photo {
+  object-fit: cover;
+  transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.productCard:hover .photo {
+  transform: scale(1.03);
+}
+
+.productMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.metaTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.badgeMini {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--color-accent);
+}
+
+.refMini {
+  font-size: 0.7rem;
+  color: var(--color-muted-dim);
+}
+
+.relatedTitle {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 400;
+}
+
+.relatedTitle a:hover {
+  color: var(--color-accent);
+}
+

@@ -1,0 +1,15 @@
+{
+  "name": "@nextjs-template/weglow-suprise",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "sourceRoot": "apps/weglow-suprise/src"
+  },
+  "dependencies": {
+    "@nextjs-template/brand-weglow-surprise": "^0.0.1",
+    "@nextjs-template/ui": "^0.0.1",
+    "next": "~16.1.6",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}
