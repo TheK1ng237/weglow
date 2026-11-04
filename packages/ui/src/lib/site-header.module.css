@@ -183,6 +183,23 @@
   background: currentColor;
 }
 
+@media (max-width: 1023px) {
+  .actionButton,
+  .subBar,
+  .menuText {
+    display: none;
+  }
+
+  .headerRight {
+    gap: 0;
+  }
+
+  .menuToggle {
+    gap: 0;
+    padding: 8px;
+  }
+}
+
 /* Sub-bar */
 .subBar {
   min-height: 52px;
