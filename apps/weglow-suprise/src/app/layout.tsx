@@ -98,6 +98,7 @@ export default function RootLayout({
           brandQualifier="SURPRISE"
           navigation={primaryNavigation}
           secondaryNavigation={secondaryNavigation}
+          serviceLinks={[{ label: 'WeGlow Surprise', href: '/' }]}
           tagline="CADEAUX & ÉVÉNEMENTIEL"
           whatsAppMessage={whatsappMessage}
           whatsAppPhone={whatsappPhone}

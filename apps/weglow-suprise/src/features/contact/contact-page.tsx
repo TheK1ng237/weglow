@@ -2,18 +2,14 @@
 
 import { useState, useTransition, type FormEvent } from 'react';
 import Image from 'next/image';
-import { WhatsAppIcon } from '@nextjs-template/ui';
+import { buildWhatsAppHref, WhatsAppIcon } from '@nextjs-template/ui';
 import styles from './contact-page.module.css';
 
 const whatsappPhone = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER?.replace(
   /\D/g,
   '',
 );
-const whatsappHref = whatsappPhone
-  ? `https://wa.me/${whatsappPhone}?text=${encodeURIComponent(
-      'Bonjour WeGlow Surprise, je souhaite des informations sur vos prestations et créations.',
-    )}`
-  : '/contact';
+const whatsappHref = buildWhatsAppHref(whatsappPhone, 'Bonjour WeGlow Surprise, je souhaite des informations sur vos prestations et créations.',);
 
 export function ContactPage() {
   const [isPending, startTransition] = useTransition();
@@ -80,10 +76,14 @@ export function ContactPage() {
                       className={styles.whatsAppLink}
                       href={whatsappHref}
                       rel="noreferrer"
-                      target={whatsappPhone ? '_blank' : undefined}
+                      target="_blank"
                     >
                       <WhatsAppIcon className={styles.btnIcon} />
-                      <span>{process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '+225 07 00 00 00 00'}</span>
+                      <span>
+                        {whatsappPhone
+                          ? `+${whatsappPhone}`
+                          : 'Numéro WhatsApp à renseigner'}
+                      </span>
                     </a>
                   </div>
 
@@ -263,7 +263,7 @@ export function ContactPage() {
                 className={styles.whatsAppButtonBordeaux}
                 href={whatsappHref}
                 rel="noreferrer"
-                target={whatsappPhone ? '_blank' : undefined}
+                target="_blank"
               >
                 <WhatsAppIcon className={styles.btnIcon} />
                 <span>Discuter sur WhatsApp</span>

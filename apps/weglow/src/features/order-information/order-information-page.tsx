@@ -3,18 +3,14 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
-import { WhatsAppIcon } from '@nextjs-template/ui';
+import { buildWhatsAppHref, WhatsAppIcon } from '@nextjs-template/ui';
 import styles from './order-information-page.module.css';
 
 const whatsappPhone = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER?.replace(
   /\D/g,
   '',
 );
-const whatsappHref = whatsappPhone
-  ? `https://wa.me/${whatsappPhone}?text=${encodeURIComponent(
-      'Bonjour WeGlow, je souhaite échanger sur une pièce pour commander ou obtenir des informations.',
-    )}`
-  : '/contact';
+const whatsappHref = buildWhatsAppHref(whatsappPhone, 'Bonjour WeGlow, je souhaite échanger sur une pièce pour commander ou obtenir des informations.',);
 
 export function OrderInformationPage() {
   const searchParams = useSearchParams();
@@ -79,7 +75,7 @@ export function OrderInformationPage() {
                 className={styles.whatsAppButton}
                 href={whatsappHref}
                 rel="noreferrer"
-                target={whatsappPhone ? '_blank' : undefined}
+                target="_blank"
               >
                 <WhatsAppIcon className={styles.btnIcon} />
                 <span>Échanger sur WhatsApp</span>

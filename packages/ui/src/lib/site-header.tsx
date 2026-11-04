@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { WhatsAppIcon } from './whatsapp-link';
+import { buildWhatsAppHref, WhatsAppIcon } from './whatsapp-link';
 import styles from './site-header.module.css';
 
 export interface SiteNavigationItem {
@@ -16,6 +16,7 @@ export interface SiteHeaderProps {
   brandQualifier?: string;
   navigation: SiteNavigationItem[];
   secondaryNavigation?: SiteNavigationItem[];
+  serviceLinks?: SiteNavigationItem[];
   action: SiteNavigationItem;
   tagline: string;
   whatsAppPhone?: string;
@@ -27,6 +28,7 @@ export function SiteHeader({
   brandQualifier,
   navigation,
   secondaryNavigation,
+  serviceLinks = [],
   action,
   tagline,
   whatsAppPhone = '',
@@ -52,9 +54,10 @@ export function SiteHeader({
   }, [isOpen]);
 
   const cleanPhone = whatsAppPhone.replace(/\D/g, '');
-  const whatsAppHref = cleanPhone
-    ? `https://wa.me/${cleanPhone}?text=${encodeURIComponent(whatsAppMessage)}`
-    : '/contact';
+  const whatsAppHref = buildWhatsAppHref(
+    cleanPhone,
+    whatsAppMessage,
+  );
 
   const isSurprise = brand.toLowerCase().includes('surprise');
   const allNavItems = secondaryNavigation
@@ -96,6 +99,27 @@ export function SiteHeader({
                 </Link>
               );
             })}
+            {serviceLinks.length > 0 ? (
+              <details className={styles.servicesMenu}>
+                <summary className={styles.servicesTrigger}>
+                  Services
+                  <span aria-hidden="true" className={styles.servicesChevron}>
+                    ⌄
+                  </span>
+                </summary>
+                <div className={styles.servicesDropdown}>
+                  {serviceLinks.map((item) => (
+                    <Link
+                      className={styles.servicesLink}
+                      href={item.href}
+                      key={item.href}
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              </details>
+            ) : null}
           </nav>
 
           {/* Action CTA & Mobile Menu Toggle */}
@@ -165,7 +189,7 @@ export function SiteHeader({
               }
               href={whatsAppHref}
               rel="noreferrer"
-              target={cleanPhone ? '_blank' : undefined}
+              target="_blank"
             >
               <WhatsAppIcon className={styles.whatsAppIcon} />
               <span>WhatsApp</span>
@@ -225,6 +249,29 @@ export function SiteHeader({
                 </Link>
               );
             })}
+            {serviceLinks.length > 0 ? (
+              <details className={styles.drawerServices}>
+                <summary className={styles.drawerServicesTrigger}>
+                  Services
+                  <span aria-hidden="true" className={styles.servicesChevron}>
+                    ⌄
+                  </span>
+                </summary>
+                <div className={styles.drawerServicesLinks}>
+                  {serviceLinks.map((item) => (
+                    <Link
+                      className={styles.drawerServiceLink}
+                      href={item.href}
+                      key={item.href}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {item.label}
+                      <span aria-hidden="true">↗</span>
+                    </Link>
+                  ))}
+                </div>
+              </details>
+            ) : null}
           </nav>
 
           <div className={styles.drawerActions}>
@@ -247,7 +294,7 @@ export function SiteHeader({
                 }
                 href={whatsAppHref}
                 rel="noreferrer"
-                target={cleanPhone ? '_blank' : undefined}
+                target="_blank"
               >
                 <WhatsAppIcon className={styles.whatsAppIcon} />
                 <span>WhatsApp</span>

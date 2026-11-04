@@ -8,6 +8,14 @@ export interface WhatsAppLinkProps {
   className?: string;
 }
 
+export function buildWhatsAppHref(
+  phoneNumber: string | undefined,
+  message: string,
+): string {
+  const phone = phoneNumber?.replace(/\D/g, '') || '';
+  return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+}
+
 export function WhatsAppIcon({ className }: { className?: string }) {
   return (
     <svg
@@ -30,10 +38,7 @@ export function WhatsAppLink({
   variant = 'outline',
   className,
 }: WhatsAppLinkProps) {
-  const phone = phoneNumber?.replace(/\D/g, '') || '';
-  const href = phone
-    ? `https://wa.me/${phone}?text=${encodeURIComponent(message)}`
-    : '#';
+  const href = buildWhatsAppHref(phoneNumber, message);
 
   const classes = [styles.button, styles[variant], className]
     .filter(Boolean)

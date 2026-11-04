@@ -3,18 +3,14 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { WhatsAppIcon } from '@nextjs-template/ui';
+import { buildWhatsAppHref, WhatsAppIcon } from '@nextjs-template/ui';
 import styles from './accessory-detail-page.module.css';
 
 const whatsappPhone = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER?.replace(
   /\D/g,
   '',
 );
-const whatsappHref = whatsappPhone
-  ? `https://wa.me/${whatsappPhone}?text=${encodeURIComponent(
-      'Bonjour WeGlow, je souhaite commander ou obtenir des informations sur l’accessoire (Réf. à renseigner).',
-    )}`
-  : '/contact';
+const whatsappHref = buildWhatsAppHref(whatsappPhone, 'Bonjour WeGlow, je souhaite commander ou obtenir des informations sur l’accessoire (Réf. à renseigner).',);
 
 const thumbnails = [
   {
@@ -165,7 +161,7 @@ export function AccessoryDetailPage() {
                   className={styles.whatsAppButton}
                   href={whatsappHref}
                   rel="noreferrer"
-                  target={whatsappPhone ? '_blank' : undefined}
+                  target="_blank"
                 >
                   <WhatsAppIcon className={styles.btnIcon} />
                   <span>Commander sur WhatsApp</span>

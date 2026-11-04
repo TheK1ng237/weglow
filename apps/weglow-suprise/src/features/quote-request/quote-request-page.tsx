@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { WhatsAppIcon } from '@nextjs-template/ui';
+import { buildWhatsAppHref, WhatsAppIcon } from '@nextjs-template/ui';
 import { QuoteRequestForm } from './quote-request-form';
 import styles from './quote-request-page.module.css';
 
@@ -8,11 +8,7 @@ const whatsappPhone = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER?.replace(
   /\D/g,
   '',
 );
-const whatsappHref = whatsappPhone
-  ? `https://wa.me/${whatsappPhone}?text=${encodeURIComponent(
-      'Bonjour WeGlow Surprise, je souhaite faire une demande de devis directement sur WhatsApp.',
-    )}`
-  : '/contact';
+const whatsappHref = buildWhatsAppHref(whatsappPhone, 'Bonjour WeGlow Surprise, je souhaite faire une demande de devis directement sur WhatsApp.',);
 
 export function QuoteRequestPage() {
   return (
@@ -78,7 +74,7 @@ export function QuoteRequestPage() {
                     className={styles.whatsAppButtonOutline}
                     href={whatsappHref}
                     rel="noreferrer"
-                    target={whatsappPhone ? '_blank' : undefined}
+                    target="_blank"
                   >
                     <WhatsAppIcon className={styles.btnIcon} />
                     <span>Écrire sur WhatsApp</span>

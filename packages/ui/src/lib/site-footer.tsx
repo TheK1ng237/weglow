@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import type { SiteNavigationItem } from './site-header';
+import { buildWhatsAppHref } from './whatsapp-link';
 import styles from './site-footer.module.css';
 
 export interface SiteFooterProps {
@@ -22,9 +23,7 @@ export function SiteFooter({
   isSurprise = false,
 }: SiteFooterProps) {
   const cleanPhone = whatsAppPhone.replace(/\D/g, '');
-  const whatsAppHref = cleanPhone
-    ? `https://wa.me/${cleanPhone}?text=${encodeURIComponent(whatsAppMessage)}`
-    : '#';
+  const whatsAppHref = buildWhatsAppHref(cleanPhone, whatsAppMessage);
 
   return (
     <footer
@@ -64,7 +63,7 @@ export function SiteFooter({
                 className={styles.whatsAppLink}
                 href={whatsAppHref}
                 rel="noreferrer"
-                target={cleanPhone ? '_blank' : undefined}
+                target="_blank"
               >
                 Nous écrire sur WhatsApp <span aria-hidden="true">↗</span>
               </a>

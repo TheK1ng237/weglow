@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { WhatsAppIcon } from '@nextjs-template/ui';
+import { buildWhatsAppHref, WhatsAppIcon } from '@nextjs-template/ui';
 import { GalleryGrid } from './gallery-grid';
 import styles from './gallery-page.module.css';
 
@@ -8,11 +8,7 @@ const whatsappPhone = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER?.replace(
   /\D/g,
   '',
 );
-const whatsappHref = whatsappPhone
-  ? `https://wa.me/${whatsappPhone}?text=${encodeURIComponent(
-      'Bonjour WeGlow Surprise, j’ai vu une réalisation dans votre galerie et souhaite des informations.',
-    )}`
-  : '/contact';
+const whatsappHref = buildWhatsAppHref(whatsappPhone, 'Bonjour WeGlow Surprise, j’ai vu une réalisation dans votre galerie et souhaite des informations.',);
 
 export function GalleryPage() {
   return (
@@ -87,7 +83,7 @@ export function GalleryPage() {
                 className={styles.whatsAppButtonBordeaux}
                 href={whatsappHref}
                 rel="noreferrer"
-                target={whatsappPhone ? '_blank' : undefined}
+                target="_blank"
               >
                 <WhatsAppIcon className={styles.btnIcon} />
                 <span>Partager mon inspiration</span>

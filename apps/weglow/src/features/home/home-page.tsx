@@ -1,17 +1,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { WhatsAppIcon } from '@nextjs-template/ui';
+import { buildWhatsAppHref, WhatsAppIcon } from '@nextjs-template/ui';
 import styles from './home-page.module.css';
 
 const whatsappPhone = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER?.replace(
   /\D/g,
   '',
 );
-const whatsappHref = whatsappPhone
-  ? `https://wa.me/${whatsappPhone}?text=${encodeURIComponent(
-      'Bonjour WeGlow, je souhaite obtenir des informations sur une pièce vue sur le site.',
-    )}`
-  : '/contact';
+const whatsappHref = buildWhatsAppHref(whatsappPhone, 'Bonjour WeGlow, je souhaite obtenir des informations sur une pièce vue sur le site.',);
 
 export default function HomePage() {
   return (
@@ -42,7 +38,7 @@ export default function HomePage() {
                   className={styles.whatsAppButton}
                   href={whatsappHref}
                   rel="noreferrer"
-                  target={whatsappPhone ? '_blank' : undefined}
+                  target="_blank"
                 >
                   <WhatsAppIcon className={styles.btnIcon} />
                   <span>WhatsApp</span>
@@ -239,7 +235,7 @@ export default function HomePage() {
                 className={styles.whatsAppButtonFilled}
                 href={whatsappHref}
                 rel="noreferrer"
-                target={whatsappPhone ? '_blank' : undefined}
+                target="_blank"
               >
                 <WhatsAppIcon className={styles.btnIcon} />
                 <span>Demander via WhatsApp</span>

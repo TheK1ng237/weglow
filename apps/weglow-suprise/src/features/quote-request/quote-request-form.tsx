@@ -2,7 +2,7 @@
 
 import { useState, useTransition, type FormEvent } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { WhatsAppIcon } from '@nextjs-template/ui';
+import { buildWhatsAppHref, WhatsAppIcon } from '@nextjs-template/ui';
 import styles from './quote-request-form.module.css';
 
 const serviceOptions = [
@@ -52,20 +52,36 @@ export function QuoteRequestForm() {
   const [isPending, startTransition] = useTransition();
   const [submitted, setSubmitted] = useState(false);
   const [refNumber, setRefNumber] = useState('');
+  const [whatsappMessage, setWhatsappMessage] = useState(
+    'Bonjour WeGlow Surprise, je souhaite faire une demande de devis.',
+  );
 
   const whatsappPhone = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER?.replace(
     /\D/g,
     '',
   );
-  const whatsappHref = whatsappPhone
-    ? `https://wa.me/${whatsappPhone}?text=${encodeURIComponent(
-        `Bonjour WeGlow Surprise, je fais suite à ma demande de devis en ligne (${refNumber || 'projet WeGlow Surprise'}).`,
-      )}`
-    : '/contact';
+  const whatsappHref = buildWhatsAppHref(whatsappPhone, whatsappMessage);
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const generatedRef = `WS-${Math.floor(100000 + Math.random() * 900000)}`;
+    const formData = new FormData(event.currentTarget);
+    const messageLines = [
+      'Bonjour WeGlow Surprise, je souhaite faire une demande de devis.',
+      `Référence : ${generatedRef}`,
+      `Nom : ${formData.get('name')}`,
+      `Téléphone : ${formData.get('phone')}`,
+      `WhatsApp : ${formData.get('whatsapp') || 'identique au téléphone'}`,
+      `E-mail : ${formData.get('email')}`,
+      `Prestation : ${formData.get('service')}`,
+      formData.get('eventDate') && `Date souhaitée : ${formData.get('eventDate')}`,
+      formData.get('location') && `Lieu : ${formData.get('location')}`,
+      formData.get('guestCount') &&
+        `Nombre d’invités : ${formData.get('guestCount')}`,
+      formData.get('budget') && `Budget indicatif : ${formData.get('budget')}`,
+      `Description : ${formData.get('description')}`,
+    ].filter(Boolean);
+    setWhatsappMessage(messageLines.join('\n'));
     setRefNumber(generatedRef);
 
     startTransition(() => {
@@ -99,7 +115,7 @@ export function QuoteRequestForm() {
             className={styles.whatsAppButtonBordeaux}
             href={whatsappHref}
             rel="noreferrer"
-            target={whatsappPhone ? '_blank' : undefined}
+            target="_blank"
           >
             <WhatsAppIcon className={styles.btnIcon} />
             <span>Accélérer sur WhatsApp ({refNumber})</span>

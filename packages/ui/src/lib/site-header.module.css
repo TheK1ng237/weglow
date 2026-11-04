@@ -102,6 +102,73 @@
   background: var(--color-accent);
 }
 
+.servicesMenu {
+  position: relative;
+}
+
+.servicesTrigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 0;
+  color: var(--color-muted);
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 500;
+  cursor: pointer;
+  list-style: none;
+}
+
+.servicesTrigger::-webkit-details-marker {
+  display: none;
+}
+
+.servicesTrigger:hover,
+.servicesMenu[open] .servicesTrigger {
+  color: var(--color-ink);
+}
+
+.servicesChevron {
+  display: inline-block;
+  font-size: 0.9em;
+  transition: transform var(--transition-smooth);
+}
+
+.servicesMenu[open] .servicesChevron,
+.drawerServices[open] .servicesChevron {
+  transform: rotate(180deg);
+}
+
+.servicesDropdown {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: -18px;
+  z-index: 20;
+  min-width: 210px;
+  padding: 8px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-luxury);
+}
+
+.servicesLink {
+  display: block;
+  padding: 12px;
+  color: var(--color-muted);
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  text-decoration: none;
+  transition:
+    background var(--transition-smooth),
+    color var(--transition-smooth);
+}
+
+.servicesLink:hover,
+.servicesLink:focus-visible {
+  background: var(--color-surface-hover);
+  color: var(--color-ink);
+}
+
 .headerRight {
   display: flex;
   align-items: center;
@@ -403,6 +470,53 @@
 .drawerLinkActive {
   color: var(--color-ink);
   font-weight: 600;
+}
+
+.drawerServices {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.drawerServicesTrigger {
+  display: flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 0;
+  color: var(--color-muted);
+  font-size: 1.15rem;
+  font-weight: 500;
+  cursor: pointer;
+  list-style: none;
+}
+
+.drawerServicesTrigger::-webkit-details-marker {
+  display: none;
+}
+
+.drawerServices[open] .drawerServicesTrigger,
+.drawerServicesTrigger:hover {
+  color: var(--color-ink);
+}
+
+.drawerServicesLinks {
+  display: grid;
+  gap: 4px;
+  padding: 0 0 12px 16px;
+}
+
+.drawerServiceLink {
+  display: flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--color-muted);
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+.drawerServiceLink:hover,
+.drawerServiceLink:focus-visible {
+  color: var(--color-ink);
 }
 
 .activeDot {

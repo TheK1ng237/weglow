@@ -58,6 +58,12 @@ const navigation: SiteNavigationItem[] = [
   { label: 'Contact', href: '/contact' },
 ];
 
+const weglowSurpriseUrl =
+  process.env.NEXT_PUBLIC_WE_GLOW_SURPRISE_URL ||
+  (process.env.NODE_ENV === 'development'
+    ? 'http://localhost:3001'
+    : 'https://weglow-surprise.com');
+
 export const metadata: Metadata = {
   title: 'WeGlow — Bijoux & accessoires',
   description:
@@ -80,6 +86,9 @@ export default function RootLayout({
           action={{ label: 'Informations', href: '/commande' }}
           brand="WeGlow"
           navigation={navigation}
+          serviceLinks={[
+            { label: 'WeGlow Surprise', href: weglowSurpriseUrl },
+          ]}
           tagline="BIJOUX & ACCESSOIRES"
           whatsAppMessage={whatsappMessage}
           whatsAppPhone={whatsappPhone}
