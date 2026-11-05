@@ -2,7 +2,9 @@
   "name": "@nextjs-template/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "build": "nx run @nextjs-template/weglow-suprise:build"
+  },
   "private": true,
   "dependencies": {
     "next": "~16.1.6",
