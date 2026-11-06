@@ -54,6 +54,7 @@ const primaryNavigation: SiteNavigationItem[] = [
   { label: 'Cadeaux', href: '/cadeaux' },
   { label: 'Événementiel', href: '/evenements' },
   { label: 'Musique', href: '/musique' },
+  { label: 'WeGlow', href: 'https://weglow.idem.africa' },
 ];
 
 const secondaryNavigation: SiteNavigationItem[] = [
@@ -98,7 +99,6 @@ export default function RootLayout({
           brandQualifier="SURPRISE"
           navigation={primaryNavigation}
           secondaryNavigation={secondaryNavigation}
-          serviceLinks={[{ label: 'WeGlow Surprise', href: '/' }]}
           tagline="CADEAUX & ÉVÉNEMENTIEL"
           whatsAppMessage={whatsappMessage}
           whatsAppPhone={whatsappPhone}
