@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "build": "nx run @nextjs-template/weglow-suprise:build"
+    "build": "nx run @nextjs-template/weglow:build"
   },
   "private": true,
   "dependencies": {

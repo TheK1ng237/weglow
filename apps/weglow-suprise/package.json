@@ -2,6 +2,11 @@
   "name": "@nextjs-template/weglow-suprise",
   "version": "0.0.1",
   "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
   "nx": {
     "sourceRoot": "apps/weglow-suprise/src"
   },
