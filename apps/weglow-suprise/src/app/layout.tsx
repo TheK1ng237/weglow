@@ -75,9 +75,31 @@ const footerNavigation: SiteNavigationItem[] = [
 ];
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://weglow-surprise.com'),
   title: 'WeGlow Surprise — Cadeaux & événementiel',
   description:
     'Cadeaux personnalisés, surprises, décoration événementielle et musique pour célébrer les moments qui comptent.',
+  openGraph: {
+    type: 'website',
+    locale: 'fr_FR',
+    siteName: 'WeGlow Surprise',
+    images: [
+      {
+        url: '/images/social-preview.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Cadeau personnalisé WeGlow Surprise',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['/images/social-preview.jpg'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({

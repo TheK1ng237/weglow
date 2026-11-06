@@ -65,9 +65,31 @@ const weglowSurpriseUrl =
     : 'https://weglow-surprise.com');
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://weglow.idem.africa'),
   title: 'WeGlow — Bijoux & accessoires',
   description:
     'Des bijoux et des accessoires à découvrir, pour accompagner votre style ou faire plaisir. Prenons le temps de choisir ensemble.',
+  openGraph: {
+    type: 'website',
+    locale: 'fr_FR',
+    siteName: 'WeGlow',
+    images: [
+      {
+        url: '/images/social-preview.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Sélection de bijoux WeGlow',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['/images/social-preview.jpg'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
